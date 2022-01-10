@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Front;
 
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +14,7 @@ class ProductController extends AbstractController
     {
         $products = $productRepository->findAll();
 
-        return $this->render('product/products.html.twig', [
+        return $this->render('front/product/products.html.twig', [
             'products' => $products,
         ]);
     }
@@ -24,7 +24,7 @@ class ProductController extends AbstractController
     public function productShow($id, ProductRepository $productRepository)
     {
         $product = $productRepository->find($id);
-        return $this->render('product/product.html.twig', [
+        return $this->render('front/product/product.html.twig', [
             'product' => $product,
         ]);
     }
