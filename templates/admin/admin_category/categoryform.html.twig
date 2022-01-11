@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="my-3">
+			<a href="{{ path('main') }}" class="btn btn-outline-primary">
+				Accueil
+			</a>
+			<a href="{{ path('category_list') }}" class="btn btn-outline-primary">
+				Retour à la liste
+			</a>
+		</div>
+
+		{{ form_start(categoryForm) }}
+		<div class="mb-3">
+			{{ form_label(categoryForm.name, 'Nom : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(categoryForm.name, {'attr' : {'placeholder' : 'Nom de la categorie', 'class' : 'form-control category-name'} } ) }}
+		</div>
+		<div class="mb-3">
+			{{ form_label(categoryForm.description, 'Description : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(categoryForm.description, {'attr' : {'placeholder' : 'Description de la Categorie', 'class' : 'form-control category-description'} } ) }}
+		</div>
+
+		{{ form_widget(categoryForm.enregistrer, { 'attr' : {'class' : 'btn btn-outline-primary'} } ) }}
+
+		{{ form_end(categoryForm) }}
+	</div>
+{% endblock %}

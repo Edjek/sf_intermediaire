@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="my-3">
+			<a href="{{ path('main') }}" class="btn btn-outline-primary">
+				Accueil
+			</a>
+			<a href="{{ path('product_list') }}" class="btn btn-outline-primary">
+				Retour à la liste
+			</a>
+		</div>
+
+		{{ form_start(productForm) }}
+		<div class="mb-3">
+			{{ form_label(productForm.name, 'Nom : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(productForm.name, {'attr' : {'placeholder' : 'Nom du produit', 'class' : 'form-control product-name'} } ) }}
+		</div>
+
+		<div class="mb-3">
+			{{ form_label(productForm.price, 'Prix : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(productForm.price, {'attr' : {'placeholder' : 'Prix du produit', 'class' : 'form-control product-price'} } ) }}
+		</div>
+
+		<div class="mb-3">
+			{{ form_label(productForm.stock, 'Stock : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(productForm.stock, {'attr' : {'placeholder' : 'Stock du produit', 'class' : 'form-control product-stock'} } ) }}
+		</div>
+		
+		<div class="mb-3">
+			{{ form_label(productForm.category, 'Categorie : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(productForm.category, {'attr' : {'placeholder' : 'Categorie du produit', 'class' : 'form-control product-category'} } ) }}
+		</div>
+		
+		<div class="mb-3">
+			{{ form_label(productForm.brand, 'Marque : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(productForm.brand, {'attr' : {'placeholder' : 'Marque du produit', 'class' : 'form-control product-brand'} } ) }}
+		</div>
+
+		{{ form_widget(productForm.enregistrer, { 'attr' : {'class' : 'btn btn-outline-primary'} } ) }}
+
+		{{ form_end(productForm) }}
+	</div>
+{% endblock %}
