@@ -67,7 +67,7 @@ class AdminBrandController extends AbstractController
     }
 
 
-    #[Route('/admin/delete/brand', name: 'admin_delete_brand')]
+    #[Route('/admin/delete/brand/{id}', name: 'admin_delete_brand')]
     public function deleteBrand($id, BrandRepository $brandRepository, EntityManagerInterface $entityManagerInterface)
     {
         $brand = $brandRepository->find($id);

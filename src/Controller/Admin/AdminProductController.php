@@ -33,7 +33,7 @@ class AdminProductController extends AbstractController
 
             $this->addFlash(
                 'notice',
-                'La categorie a été modifié'
+                'Le produit a été modifié'
             );
 
             return $this->redirectToRoute('product_list');
@@ -57,7 +57,7 @@ class AdminProductController extends AbstractController
 
             $this->addFlash(
                 'notice',
-                'Une categorie a été créé'
+                'Un produit a été créé'
             );
 
             return $this->redirectToRoute("product_list");
@@ -67,7 +67,7 @@ class AdminProductController extends AbstractController
     }
 
 
-    #[Route('/admin/delete/product', name: 'admin_delete_product')]
+    #[Route('/admin/delete/product/{id}', name: 'admin_delete_product')]
     public function deleteProduct($id, ProductRepository $productRepository, EntityManagerInterface $entityManagerInterface)
     {
         $product = $productRepository->find($id);
@@ -78,7 +78,7 @@ class AdminProductController extends AbstractController
 
         $this->addFlash(
             'notice',
-            'La categorie a été supprimé'
+            'Le produit a été supprimé'
         );
 
         return $this->redirectToRoute("product_list");
