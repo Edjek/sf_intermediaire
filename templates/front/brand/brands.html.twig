@@ -30,7 +30,7 @@
 							</a>
 						</td>
 						<td>{{ brand.description }}</td>
-						<td><img src="media/{{ brand.media }}" alt="" width="100px"></td>
+						<td><img src="{{ asset('media/'~brand.media) }}" alt="" width="100px"></td>
 					</tr>
 				{% endfor %}
 			</tbody>

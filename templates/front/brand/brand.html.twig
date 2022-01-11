@@ -9,7 +9,7 @@
 	<div class="border p-5">
 		<h1>{{ brand.name }}</h1>
 		<p>{{ brand.description }}</p>
-		<p><img src="media/{{ brand.media }}" alt="" width="100px"></p>
+		<p><img src="{{ asset('media/'~brand.media) }}" alt="" width="100px"></p>
 	</div>
 </div>
 {% endblock %}
