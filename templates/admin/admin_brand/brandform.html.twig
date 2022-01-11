@@ -19,9 +19,15 @@
 			{{ form_label(brandForm.name, 'Nom : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
 			{{ form_widget(brandForm.name, {'attr' : {'placeholder' : 'Nom de la marque', 'class' : 'form-control brand-name'} } ) }}
 		</div>
+
 		<div class="mb-3">
 			{{ form_label(brandForm.description, 'Description : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
 			{{ form_widget(brandForm.description, {'attr' : {'placeholder' : 'Description du livre', 'class' : 'form-control brand-description'} } ) }}
+		</div>
+
+		<div class="mb-3">
+			{{ form_label(brandForm.media, 'Fichier : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(brandForm.media, {'attr' : { 'class' : 'form-control'} } ) }}
 		</div>
 
 		{{ form_widget(brandForm.enregistrer, { 'attr' : {'class' : 'btn btn-outline-primary'} } ) }}

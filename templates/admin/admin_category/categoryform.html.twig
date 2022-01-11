@@ -17,11 +17,17 @@
 		{{ form_start(categoryForm) }}
 		<div class="mb-3">
 			{{ form_label(categoryForm.name, 'Nom : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
-			{{ form_widget(categoryForm.name, {'attr' : {'placeholder' : 'Nom de la categorie', 'class' : 'form-control category-name'} } ) }}
+			{{ form_widget(categoryForm.name, {'attr' : {'placeholder' : 'Nom de la categorie', 'class' : 'form-control'} } ) }}
 		</div>
+
 		<div class="mb-3">
 			{{ form_label(categoryForm.description, 'Description : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
-			{{ form_widget(categoryForm.description, {'attr' : {'placeholder' : 'Description de la Categorie', 'class' : 'form-control category-description'} } ) }}
+			{{ form_widget(categoryForm.description, {'attr' : {'placeholder' : 'Description de la categorie', 'class' : 'form-control'} } ) }}
+		</div>
+
+		<div class="mb-3">
+			{{ form_label(categoryForm.media, 'Fichier : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(categoryForm.media, {'attr' : { 'class' : 'form-control'} } ) }}
 		</div>
 
 		{{ form_widget(categoryForm.enregistrer, { 'attr' : {'class' : 'btn btn-outline-primary'} } ) }}

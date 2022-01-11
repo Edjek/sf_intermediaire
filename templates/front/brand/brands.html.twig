@@ -18,6 +18,7 @@
 				<tr>
 					<th scope="col">Name</th>
 					<th scope="col">Description</th>
+					<th scope="col">Image</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,6 +30,7 @@
 							</a>
 						</td>
 						<td>{{ brand.description }}</td>
+						<td><img src="media/{{ brand.media }}" alt="" width="100px"></td>
 					</tr>
 				{% endfor %}
 			</tbody>
