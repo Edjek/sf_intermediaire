@@ -4,6 +4,9 @@
 {% endblock %}
 
 {% block body %}
+	<div class="container-fluid py-3 bg-light text-center">
+		{{ admin }}
+	</div>
 	<div class="container">
 		<div class="my-3">
 			<a href="{{ path('main') }}" class="btn btn-outline-primary">
@@ -34,7 +37,4 @@
 
 		{{ form_end(brandForm) }}
 	</div>
-	<footer class="footer mt-auto py-3 bg-light text-center">
-		{{ admin }}
-	</footer>
 {% endblock %}
