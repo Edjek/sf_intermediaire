@@ -40,7 +40,7 @@
 						<td>{{ product.brand.description }}</td>
 						<td>{{ product.category.name }}</td>
 						<td>{{ product.category.description }}</td>
-						<td>{% for media in product.media %}<img src="{{ asset('media/'~media.src) }}" alt="" width="100px">{% endfor %}</td>
+						<td><img src="{{ asset('media/'~product.media[0].src) }}" alt="" width="100px"></td>
 					</tr>
 				{% endfor %}
 			</tbody>
