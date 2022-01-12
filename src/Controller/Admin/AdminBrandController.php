@@ -18,7 +18,8 @@ class AdminBrandController extends AbstractController
         $id,
         BrandRepository $brandRepository,
         Request $request,
-        EntityManagerInterface $entityManagerInterface
+        EntityManagerInterface $entityManagerInterface,
+        SluggerInterface $sluggerInterface
     ) {
 
         $brand = $brandRepository->find($id);
@@ -28,6 +29,34 @@ class AdminBrandController extends AbstractController
         $brandForm->handleRequest($request);
 
         if ($brandForm->isSubmitted() && $brandForm->isValid()) {
+            // On récupère le fichier
+            $brandFile = $brandForm->get('media')->getData();
+
+            if ($brandFile) {
+
+                // On créée un nom unique à notre fichier à partir du nom original
+                // Pour éviter tout problème de confusion
+
+                // On récupère le nom original du fichier
+                $originalFilename = pathinfo($brandFile->getClientOriginalName(), PATHINFO_FILENAME);
+
+                // On utilise slug sur le nom original pour avoir un nom valide du fichier
+                $safeFilename = $sluggerInterface->slug($originalFilename);
+
+                // On ajoute un id unique au nom de l'image
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $brandFile->guessExtension();
+
+                // On déplace le fichier dans le dossier public/brand
+                // la destination du fichier est enregistré dans 'images_directory'
+                // qui est défini dans le fichier config\services.yaml
+
+                $brandFile->move(
+                    $this->getParameter('images_directory'),
+                    $newFilename
+                );
+
+                $brand->setMedia($newFilename);
+            }
             $entityManagerInterface->persist($brand);
             $entityManagerInterface->flush();
 
