@@ -14,8 +14,14 @@
 			<p>{{ product.brand.description }}</p>
 			<p>{{ product.category.name }}</p>
 			<p>{{ product.category.description }}</p>
-			<p>{% for media in product.media %}<img src="{{ asset('media/'~media.src) }}" alt="" width="100px">{% endfor %}</p>
+			<p>
+				{% for media in product.media %}<img src="{{ asset('media/'~media.src) }}" alt="" width="100px">
+				{% endfor %}
+			</p>
 
 		</div>
 	</div>
+	<footer class="footer mt-auto py-3 bg-light text-center">
+		{{ front }}
+	</footer>
 {% endblock %}

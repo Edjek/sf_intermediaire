@@ -5,36 +5,38 @@
 
 {% block body %}
 
-<div class="container mt-5">
-	{% for message in app.flashes('notice') %}
-	<div class="alert alert-success alert-dismissible fade show" role="alert">
-		{{ message }}
-		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	<div class="container mt-5">
+		{% for message in app.flashes('notice') %}
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
+
+		<table class="table table-hover text-center">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Description</th>
+					<th scope="col">Image</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for category in categories %}
+					<tr>
+						<td>
+							<a href="{{ path('category_show', { 'id' : category.id }) }}">
+								{{ category.name }}
+							</a>
+						</td>
+						<td>{{ category.description }}</td>
+						<td><img src="{{ asset('media/'~category.media) }}" alt="" width="100px"></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 	</div>
-	{% endfor %}
-
-	<table class="table table-hover text-center">
-		<thead>
-			<tr>
-				<th scope="col">Name</th>
-				<th scope="col">Description</th>
-				<th scope="col">Image</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for category in categories %}
-			<tr>
-				<td>
-					<a href="{{ path('category_show', { 'id' : category.id }) }}">
-						{{ category.name }}
-					</a>
-				</td>
-				<td>{{ category.description }}</td>
-				<td><img src="{{ asset('media/'~category.media) }}" alt="" width="100px"></td>
-			</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-</div>
-
+	<footer class="footer mt-auto py-3 bg-light text-center">
+		{{ front }}
+	</footer>
 {% endblock %}

@@ -5,11 +5,14 @@
 
 {% block body %}
 
-<div class="container mt-5">
-	<div class="border p-5">
-		<h1>{{ brand.name }}</h1>
-		<p>{{ brand.description }}</p>
-		<p><img src="{{ asset('media/'~brand.media) }}" alt="" width="100px"></p>
+	<div class="container mt-5">
+		<div class="border p-5">
+			<h1>{{ brand.name }}</h1>
+			<p>{{ brand.description }}</p>
+			<p><img src="{{ asset('media/'~brand.media) }}" alt="" width="100px"></p>
+		</div>
 	</div>
-</div>
+	<footer class="footer mt-auto py-3 bg-light text-center">
+		{{ front }}
+	</footer>
 {% endblock %}
