@@ -18,18 +18,10 @@
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
-	<body class="min-vh-100">
-		{% for product in gproducts.getAll %}
+	<body>
+		{# {% for product in gproducts.getAll %}
 			<h3>{{ product.name }}</h3>
-		{% endfor %}
-
-		{% for brand in gbrands.getAll %}
-			<h3>{{ brand.name }}</h3>
-		{% endfor %}
-
-		{% for category in gcategoriess.getAll %}
-			<h3>{{ category.name }}</h3>
-		{% endfor %}
+		{% endfor %} #}
 
 		{% block body %}{% endblock %}
 	</body>
