@@ -1,0 +1,41 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Formulaire
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid py-3 bg-light text-center">
+		{{ admin }}
+	</div>
+
+	<div class="container">
+		<div class="my-3">
+			<a href="{{ path('main') }}" class="btn btn-outline-primary">
+				Accueil
+			</a>
+			{# <a href="{{ path('brand_list') }}" class="btn btn-outline-primary">
+							Retour à la liste
+						</a> #}
+		</div>
+
+		{{ form_start(userForm) }}
+		<div class="mb-3">
+			{{ form_label(userForm.email, 'Email : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(userForm.email, {'attr' : {'placeholder' : 'email', 'class' : 'form-control'} } ) }}
+		</div>
+
+		<div class="mb-3">
+			{{ form_label(userForm.password, 'Password : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(userForm.password, {'attr' : {'placeholder' : 'password', 'class' : 'form-control'} } ) }}
+		</div>
+
+		<div class="mb-3">
+			{{ form_label(userForm.date, 'Date : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+			{{ form_widget(userForm.date, {'attr' : { 'class' : 'form-control'} } ) }}
+		</div>
+
+		{{ form_widget(userForm.enregistrer, { 'attr' : {'class' : 'btn btn-outline-primary'} } ) }}
+
+		{{ form_end(userForm) }}
+	</div>
+{% endblock %}
