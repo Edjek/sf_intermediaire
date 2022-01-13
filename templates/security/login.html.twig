@@ -13,17 +13,17 @@
 		{% endif %}
 
 		{% if app.user %}
-			<div class="mb-3">
-				You are logged in as
+			<div class="m-3">
+				Vous êtes connectés en tant que
 				{# {{ app.user.username }}, #}
 				{# {{ app.user.email }}, #}
 				{{ last_username }}
 				,
-					<a href="{{ path('app_logout') }}"> Logout</a>
+					<a href="{{ path('app_logout') }}"> Déconnection</a>
 			</div>
 		{% endif %}
-		<div class="container">
-			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+		<div class="container mt-3">
+			<h1 class="h2 mb-3 font-weight-normal">Please sign in</h1>
 
 			<div class="my-3">
 				<label for="inputEmail" class="form-label">Email</label>

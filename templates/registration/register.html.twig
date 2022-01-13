@@ -8,8 +8,8 @@
 	{% for flashError in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 	{% endfor %}
-<div class="container">
-	<h1>Register</h1>
+<div class="container mt-3">
+	<h1 class="h2 mb-3 font-weight-normal">Register</h1>
 
 	{{ form_start(registrationForm) }}
 
@@ -26,7 +26,9 @@
 	</div>
 
 	<div class="mb-3">
-		{{ form_row(registrationForm.agreeTerms) }}
+		{{ form_row(registrationForm.agreeTerms, {
+			label: 'Valider les termes', 'attr' : { 'class' : 'form-check-input ms-2'}
+			}) }}
 	</div>
 
 	<button type="submit" class="btn btn-outline-primary">Register</button>
